@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Waiki'i Interscholastic Polo Team</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/logo-placeholder.png" alt="Team Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Contact Us</h1>
+    </header>
+
+    <main class="contact-content">
+        <section class="contact-info">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Location</h3>
+                <p>Waimea, Big Island</p>
+                <p>Hawaii</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>(808) XXX-XXXX</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>contact@waikiipolo.com</p>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <form class="contact-form" action="submit.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="membership">Membership</option>
+                        <option value="sponsorship">Sponsorship</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+
+        <section class="location-map">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <!-- Replace with your actual Google Maps embed code -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=YOUR_MAPS_EMBED_CODE"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: contact@waikiipolo.com</p>
+                <p>Phone: (808) XXX-XXXX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>Waimea, Big Island</p>
+                <p>Hawaii</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Waiki'i Interscholastic Polo Team. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

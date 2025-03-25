@@ -14,6 +14,8 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Navigation */
@@ -24,9 +26,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
     width: 100%;
     z-index: 1000;
+    position: relative;
 }
 
 .logo img {
@@ -183,6 +185,8 @@ footer {
     background-color: var(--maroon);
     color: var(--white);
     padding: 3rem 2rem 1rem;
+    position: relative;
+    width: 100%;
 }
 
 .footer-content {
@@ -213,7 +217,9 @@ footer {
 
 /* Page Header */
 .page-header {
-    height: 40vh;
+    position: relative;
+    height: auto;
+    padding: 6rem 2rem;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                 url('images/header-bg.jpg');
     background-size: cover;
@@ -222,7 +228,7 @@ footer {
     align-items: center;
     justify-content: center;
     color: var(--white);
-    margin-top: 74px;
+    margin-top: 0;
 }
 
 .page-header h1 {
@@ -492,7 +498,7 @@ footer {
     }
     
     .page-header {
-        height: 30vh;
+        padding: 4rem 1rem;
     }
 
     .donation-content {
@@ -574,4 +580,10 @@ footer {
     font-size: 2rem;
     color: var(--maroon);
     margin: 1rem 0;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    padding-top: 2rem;
 }

@@ -503,3 +503,75 @@ footer {
         transform: none;
     }
 } 
+
+/* Add these styles to your existing styles.css file */
+
+/* Donate Page Styles */
+.donate-header {
+    position: relative;
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--white);
+    background-color: var(--maroon);
+}
+
+.header-background {
+    background-image: url('images/donate-background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.donate-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+.donate-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.donate-online, .donate-offline, .sponsor-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.donate-card {
+    text-align: center;
+}
+
+.sponsor-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.sponsor-tier {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.sponsor-tier.featured {
+    border: 2px solid var(--maroon);
+    transform: scale(1.05);
+}
+
+.price {
+    font-size: 2rem;
+    color: var(--maroon);
+    margin: 1rem 0;
+}

@@ -49,7 +49,7 @@
         <section class="contact-form-section">
             <div class="form-container">
                 <h2>Get in Touch</h2>
-                <form action="https://api.web3forms.com/submit" method="POST">
+                <form action="https://api.web3forms.com/submit" method="POST" onsubmit="clearForm()">
                     <input type="hidden" name="access_key" value="eae159fe-387b-4f98-8b82-03c0aed3f950">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -116,5 +116,16 @@
             <p>&copy; 2025 Waiki'i Interscholastic Polo Team. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function clearForm() {
+            setTimeout(() => {
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('subject').value = 'general';
+                document.getElementById('message').value = '';
+            }, 1000);
+        }
+        </script>
 </body>
 </html> 

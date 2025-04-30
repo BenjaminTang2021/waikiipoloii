@@ -611,14 +611,11 @@ footer {
         height: 150px;
     }
 }
-
-/* Add these styles to your existing styles.css file */
-
 /* Donate Page Styles */
 .donate-header {
     position: relative;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
     min-height: 400px;
     display: flex;
@@ -635,24 +632,11 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
-    position: absolute;
-    z-index: 1;
-}
-
-.header-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('images/donate-background.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.8;
+    position: relative;
     z-index: 1;
 }
 
@@ -897,4 +881,32 @@ h2 {
 .contact-form-container {
     max-width: 600px;
     margin: 0 auto;
+}
+
+.contact-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.contact-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
 }

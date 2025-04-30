@@ -617,18 +617,30 @@ footer {
 /* Donate Page Styles */
 .donate-header {
     position: relative;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 8rem 2rem;
-    margin-top: 0;
-    color: var(--white);
+    color: white;
+}
+
+.donate-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.donate-header h1 {
-    position: relative;
-    z-index: 2;
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.header-content {
+    position: absolute;
+    z-index: 1;
 }
 
 .header-background {
@@ -861,4 +873,28 @@ h2 {
     background-color: #f9f9f9; /* Optional: background color for the form */
     border-radius: 8px; /* Optional: rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+
+.success-message {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-message h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.success-message p {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
 }

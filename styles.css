@@ -910,3 +910,84 @@ h2 {
     position: relative;
     z-index: 1;
 }
+
+.team-header {
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.team-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.donate-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better visibility */
+}
+
+.about-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better visibility */
+}
+
+.contact-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better visibility */
+}
+
+.gallery-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better visibility */
+}
+
+.team-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Added shadow for better visibility */
+}
+
+.gallery-header {
+    position: relative;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.gallery-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-content {
+    position: relative;
+    z-index: 1;
+}

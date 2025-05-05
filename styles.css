@@ -1038,3 +1038,13 @@ h2 {
     margin-left: 0;
     padding-left: 1.5em;  /* Increased padding to prevent overlap */
 }
+
+.sponsor-contact {
+    text-align: center;  /* Center the text and button */
+    margin-bottom: 40px;
+}
+
+.sponsor-contact .cta-button {
+    display: inline-block;  /* Ensure button is centered */
+    margin: 20px auto;  /* Add margin for spacing */
+}

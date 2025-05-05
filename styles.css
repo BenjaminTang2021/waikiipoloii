@@ -848,7 +848,7 @@ h2 {
 }
 
 .sponsor-cta h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--primary);
 }
 
@@ -1025,4 +1025,16 @@ h2 {
 .gallery-content {
     position: relative;
     z-index: 1;
+}
+
+.sponsor-tier ul {
+    list-style-position: outside;  /* Keep bullets outside */
+    padding-left: 1.5em;  /* Add padding for bullet points */
+    text-align: left;
+}
+
+.sponsor-tier li {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 1.5em;  /* Increased padding to prevent overlap */
 }

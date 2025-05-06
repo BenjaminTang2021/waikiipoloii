@@ -24,7 +24,9 @@
 
     <header class="gallery-header" style="background-image: url('./images/gallery-header.jpg');">
         <div class="header-content">
-        <h1>Photo & Video Gallery</h1>
+            <h1>Photo & Video Gallery</h1>
+            <p class="credit">Credit: All Images by Smith Sira</p>
+        </div>
     </header>
 
     <main class="gallery-content">
@@ -154,7 +156,7 @@
 
     <script>
     let currentImageIndex = 0;
-    const images = document.querySelectorAll('.gallery-item img');
+    let visibleImages = [];  // Array to store currently visible images
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeBtn = document.querySelector('.close');
@@ -164,20 +166,29 @@
     function openModal(img) {
         modal.style.display = "block";
         modalImg.src = img.src;
-        currentImageIndex = Array.from(images).indexOf(img);
-        document.body.classList.add('modal-open');  // Prevent scrolling
+        // Find the index in visibleImages array
+        currentImageIndex = visibleImages.indexOf(img);
+        updateNavigationButtons();
     }
 
     function closeModal() {
         modal.style.display = "none";
-        document.body.classList.remove('modal-open');  // Re-enable scrolling
+        document.body.classList.remove('modal-open');
     }
 
     function navigate(direction) {
         currentImageIndex += direction;
-        if (currentImageIndex >= images.length) currentImageIndex = 0;
-        if (currentImageIndex < 0) currentImageIndex = images.length - 1;
-        modalImg.src = images[currentImageIndex].src;
+        if (currentImageIndex >= visibleImages.length) return;  // Don't go past last visible image
+        if (currentImageIndex < 0) return;  // Don't go before first visible image
+        modalImg.src = visibleImages[currentImageIndex].src;
+        updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+        // Hide next button if at last visible image
+        nextBtn.style.display = currentImageIndex >= visibleImages.length - 1 ? 'none' : 'block';
+        // Hide prev button if at first visible image
+        prevBtn.style.display = currentImageIndex <= 0 ? 'none' : 'block';
     }
 
     closeBtn.onclick = closeModal;
@@ -195,8 +206,8 @@
     document.onkeydown = function(e) {
         if (modal.style.display === "block") {
             if (e.key === "Escape") closeModal();
-            if (e.key === "ArrowLeft") navigate(-1);
-            if (e.key === "ArrowRight") navigate(1);
+            if (e.key === "ArrowLeft" && currentImageIndex > 0) navigate(-1);
+            if (e.key === "ArrowRight" && currentImageIndex < visibleImages.length - 1) navigate(1);
         }
     }
 
@@ -213,16 +224,21 @@
                 this.classList.add('active');
 
                 const filterValue = this.getAttribute('data-filter');
+                visibleImages = [];  // Reset visible images array
 
                 galleryItems.forEach(item => {
                     if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
+                        visibleImages.push(item.querySelector('img'));  // Add to visible images
                     } else {
                         item.style.display = 'none';
                     }
                 });
             });
         });
+
+        // Initialize with all images visible
+        visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));
     });
     </script>
 </body>

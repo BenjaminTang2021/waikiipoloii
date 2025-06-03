@@ -27,7 +27,7 @@
 
     <header class="gallery-header" style="background-image: url('./images/gallery-header.jpg');">
         <div class="header-content">
-            <h1>Photo & Video Gallery</h1>
+            <h1>Photo Gallery</h1>
             <!-- <p class="credit">Credit: All Images by Smith Sira</p> -->
         </div>
     </header>
@@ -136,9 +136,10 @@
 
     // Load images from all folders when the page loads
     document.addEventListener('DOMContentLoaded', async function() {
-        await loadImagesFromFolder('Practices', 'Practices');
-        await loadImagesFromFolder('Regionals', 'Regionals');
-        await loadImagesFromFolder('Nationals', 'Nationals');
+        // Load images in specific order: Nationals first, then Regionals, then Practices
+        await loadImagesFromFolder('2025 Nationals', 'Nationals');
+        await loadImagesFromFolder('2025 Regionals', 'Regionals');
+        await loadImagesFromFolder('2025 Practices', 'Practices');
         
         // Initialize visible images array
         visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));
@@ -158,7 +159,7 @@
                 visibleImages = [];  // Reset visible images array
 
                 galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    if (filterValue === 'All' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
                         visibleImages.push(item.querySelector('img'));  // Add to visible images
                     } else {

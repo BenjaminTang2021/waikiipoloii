@@ -1,10 +1,5 @@
 {
-    "Practices": [
-        "practice1.JPG",
-        "practice2.JPG",
-        "practice3.JPG"
-    ],
-    "Regionals": [
+    "2025 Regionals": [
         "regionals1.JPG",
         "regionals2.JPG",
         "regionals3.JPG",
@@ -19,7 +14,7 @@
         "regionals12.JPG",
         "regionals13.JPG"
     ],
-    "Nationals": [
+    "2025 Nationals": [
         "nationals1.JPG",
         "nationals2.JPG",
         "nationals3.JPG",
@@ -30,5 +25,10 @@
         "nationals8.JPG",
         "nationals9.JPG",
         "nationals10.JPG"
+    ],
+    "2025 Practices": [
+        "practice1.JPG",
+        "practice2.JPG",
+        "practice3.JPG"
     ]
 } 

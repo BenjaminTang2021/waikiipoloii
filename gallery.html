@@ -12,6 +12,9 @@
         <div class="logo">
             <img src="images/Waikii-Polo-Logo.jpg" alt="Team Logo">
         </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -31,10 +34,10 @@
 
     <main class="gallery-content">
         <div class="gallery-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Practices">Practices</button>
-            <button class="filter-btn" data-filter="Regionals">Regionals</button>
-            <button class="filter-btn" data-filter="Nationals">Nationals</button>
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Nationals">2025 Nationals</button>
+            <button class="filter-btn" data-filter="Regionals">2025 Regionals</button>
+            <button class="filter-btn" data-filter="Practices">2025 Practices</button>
         </div>
 
         <section class="photo-gallery">
@@ -213,6 +216,31 @@
             if (e.key === "ArrowRight" && currentImageIndex < visibleImages.length - 1) navigate(1);
         }
     }
+
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Function to close menu
+    function closeMenu() {
+        navLinks.classList.remove('active');
+    }
+
+    // Close menu on page load
+    closeMenu();
+
+    // Close menu when screen size changes
+    window.addEventListener('resize', closeMenu);
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeMenu();
+        }
+    });
     </script>
 </body>
 </html> 

@@ -1162,3 +1162,51 @@ body.modal-open {
     margin-top: 10px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
+
+.team-year {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.team-year h3 {
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.team-year img {
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.achievements {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.achievements h4 {
+    color: var(--maroon);
+    margin: 20px 0 10px;
+    font-size: 1.1em;
+}
+
+.achievements ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.achievements li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.achievements li:before {
+    content: "•";
+    color: #666;
+    position: absolute;
+    left: 0;
+}

@@ -218,7 +218,7 @@ nav {
 footer {
     background-color: var(--maroon);
     color: var(--white);
-    padding: 3rem 2rem 1rem;
+    padding: 1.5rem 2rem 0.25rem;
     position: relative;
     width: 100%;
     margin-top: 4rem;
@@ -227,10 +227,11 @@ footer {
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    margin-bottom: 0 rem;
 }
 
 .footer-section:first-child {
@@ -248,14 +249,14 @@ footer {
 
 .footer-section h3 {
     color: var(--white);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     font-size: 1.2em;
     font-weight: bold;
 }
 
 .footer-section p {
     color: var(--white);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     margin-top: 0;
 }
 
@@ -276,7 +277,7 @@ footer {
 }
 
 .footer-nav {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .footer-nav ul {
@@ -284,7 +285,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 0;
     padding: 0;
     justify-content: center;
@@ -301,7 +302,7 @@ footer {
 }
 
 .social-links {
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     text-align: right;
 }
 
@@ -318,9 +319,9 @@ footer {
 
 .footer-bottom {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0.25rem;
 }
 
 /* Page Header */

@@ -38,85 +38,8 @@
         </div>
 
         <section class="photo-gallery">
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="Practices">
-                    <img src="images/practice1.JPG" alt="Practice Photo 1" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Practices">
-                    <img src="images/practice2.JPG" alt="Practice Photo 2" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Practices">
-                    <img src="images/practice3.JPG" alt="Practice Photo 3" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals1.JPG" alt="Regional Photo 1" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals2.JPG" alt="Regional Photo 2" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals3.JPG" alt="Regional Photo 3" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals4.JPG" alt="Regional Photo 4" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals5.JPG" alt="Regional Photo 5" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals6.JPG" alt="Regional Photo 6" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals7.JPG" alt="Regional Photo 7" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals8.JPG" alt="Regional Photo 8" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals9.JPG" alt="Regional Photo 9" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals10.JPG" alt="Regional Photo 10" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals11.JPG" alt="Regional Photo 11" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals12.JPG" alt="Regional Photo 12" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Regionals">
-                    <img src="images/regionals13.JPG" alt="Regional Photo 13" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals1.JPG" alt="National Photo 1" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals2.JPG" alt="National Photo 2" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals3.JPG" alt="National Photo 3" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals4.JPG" alt="National Photo 4" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals5.JPG" alt="National Photo 5" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals6.JPG" alt="National Photo 6" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals7.JPG" alt="National Photo 7" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals8.JPG" alt="National Photo 8" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals9.JPG" alt="National Photo 9" onclick="openModal(this)">
-                </div>
-                <div class="gallery-item" data-category="Nationals">
-                    <img src="images/nationals/nationals10.JPG" alt="National Photo 10" onclick="openModal(this)">
-                </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be loaded dynamically -->
             </div>
         </section>
     </main>
@@ -128,16 +51,23 @@
                 <p>Email: waikiipolo.ii@gmail.com</p>
             </div>
             <div class="footer-section">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-links">
                     <a href="https://www.facebook.com/bigislandpoloclub/" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/waikiipolo.ii/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-            </div>
-            <div class="footer-section">
-                <h3>Location</h3>
-                <p>Waimea, Big Island</p>
-                <p>Hawaii</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -162,6 +92,79 @@
     const closeBtn = document.querySelector('.close');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+
+    // Function to load images from a folder
+    async function loadImagesFromFolder(folder, category) {
+        try {
+            console.log(`Loading images from ${folder} folder...`);
+            const response = await fetch('gallery-data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            const images = data[folder] || [];
+            
+            images.forEach(imageName => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', category || folder);
+                
+                const img = document.createElement('img');
+                const imagePath = `images/${folder}/${imageName}`;
+                img.src = imagePath;
+                img.alt = `${category || folder} Photo`;
+                img.onclick = () => openModal(img);
+                
+                // Add error handling for image loading
+                img.onerror = () => {
+                    console.error(`Failed to load image: ${imagePath}`);
+                    galleryItem.remove();
+                };
+                
+                galleryItem.appendChild(img);
+                document.getElementById('galleryGrid').appendChild(galleryItem);
+            });
+            
+            console.log(`Successfully loaded ${images.length} images from ${folder} folder`);
+        } catch (error) {
+            console.error(`Error loading images from ${folder}:`, error);
+        }
+    }
+
+    // Load images from all folders when the page loads
+    document.addEventListener('DOMContentLoaded', async function() {
+        await loadImagesFromFolder('Practices', 'Practices');
+        await loadImagesFromFolder('Regionals', 'Regionals');
+        await loadImagesFromFolder('Nationals', 'Nationals');
+        
+        // Initialize visible images array
+        visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));
+        
+        // Add filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+                visibleImages = [];  // Reset visible images array
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        visibleImages.push(item.querySelector('img'));  // Add to visible images
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
 
     function openModal(img) {
         modal.style.display = "block";
@@ -210,36 +213,6 @@
             if (e.key === "ArrowRight" && currentImageIndex < visibleImages.length - 1) navigate(1);
         }
     }
-
-    // Add filter functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-
-                const filterValue = this.getAttribute('data-filter');
-                visibleImages = [];  // Reset visible images array
-
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        visibleImages.push(item.querySelector('img'));  // Add to visible images
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Initialize with all images visible
-        visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));
-    });
     </script>
 </body>
 </html> 

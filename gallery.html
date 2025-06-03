@@ -95,6 +95,8 @@
     const closeBtn = document.querySelector('.close');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    let scrollPosition = 0;
+    let lastViewedImage = null;
 
     // Function to load images from a folder
     async function loadImagesFromFolder(folder, category) {
@@ -171,55 +173,57 @@
     });
 
     function openModal(img) {
-        modal.style.display = "block";
+        lastViewedImage = img;
+        scrollPosition = img.getBoundingClientRect().top + window.pageYOffset;
+        modal.style.display = 'flex';
         modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
         // Find the index in visibleImages array
         currentImageIndex = visibleImages.indexOf(img);
         updateNavigationButtons();
-        // Add modal-open class to body
-        document.body.classList.add('modal-open');
     }
 
     function closeModal() {
-        modal.style.display = "none";
-        // Remove modal-open class from body
-        document.body.classList.remove('modal-open');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        if (lastViewedImage) {
+            lastViewedImage.scrollIntoView({ behavior: 'instant', block: 'center' });
+        }
     }
 
     function navigate(direction) {
         currentImageIndex += direction;
         if (currentImageIndex >= visibleImages.length) return;  // Don't go past last visible image
         if (currentImageIndex < 0) return;  // Don't go before first visible image
-        modalImg.src = visibleImages[currentImageIndex].src;
+        lastViewedImage = visibleImages[currentImageIndex];
+        modalImg.src = lastViewedImage.src;
         updateNavigationButtons();
     }
 
     function updateNavigationButtons() {
-        // Hide next button if at last visible image
-        nextBtn.style.display = currentImageIndex >= visibleImages.length - 1 ? 'none' : 'block';
-        // Hide prev button if at first visible image
-        prevBtn.style.display = currentImageIndex <= 0 ? 'none' : 'block';
+        // Hide prev button if at first image
+        prevBtn.style.visibility = currentImageIndex <= 0 ? 'hidden' : 'visible';
+        // Hide next button if at last image
+        nextBtn.style.visibility = currentImageIndex >= visibleImages.length - 1 ? 'hidden' : 'visible';
     }
 
     closeBtn.onclick = closeModal;
     prevBtn.onclick = () => navigate(-1);
     nextBtn.onclick = () => navigate(1);
 
-    // Close when clicking outside the image
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
             closeModal();
         }
-    }
+    });
 
-    // Keyboard navigation
-    document.onkeydown = function(e) {
-        if (modal.style.display === "block") {
-            if (e.key === "Escape") closeModal();
-            if (e.key === "ArrowLeft" && currentImageIndex > 0) navigate(-1);
-            if (e.key === "ArrowRight" && currentImageIndex < visibleImages.length - 1) navigate(1);
+    // Close modal when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
         }
-    }
+    });
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');

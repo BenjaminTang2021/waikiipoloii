@@ -176,10 +176,13 @@
         // Find the index in visibleImages array
         currentImageIndex = visibleImages.indexOf(img);
         updateNavigationButtons();
+        // Add modal-open class to body
+        document.body.classList.add('modal-open');
     }
 
     function closeModal() {
         modal.style.display = "none";
+        // Remove modal-open class from body
         document.body.classList.remove('modal-open');
     }
 

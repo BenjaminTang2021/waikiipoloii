@@ -1494,6 +1494,23 @@ body.modal-open {
     border-radius: 8px;
 }
 
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 40px;
+}
+
+.stats-container .team-year {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .team-year h3 {
     color: #222;
     margin-bottom: 15px;

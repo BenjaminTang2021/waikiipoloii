@@ -12,6 +12,9 @@
         <div class="logo">
             <img src="images/Waikii-Polo-Logo.jpg" alt="Team Logo">
         </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -24,17 +27,17 @@
 
     <header class="gallery-header" style="background-image: url('./images/gallery-header.jpg');">
         <div class="header-content">
-            <h1>Photo & Video Gallery</h1>
+            <h1>Photo Gallery</h1>
             <!-- <p class="credit">Credit: All Images by Smith Sira</p> -->
         </div>
     </header>
 
     <main class="gallery-content">
         <div class="gallery-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Practices">Practices</button>
-            <button class="filter-btn" data-filter="Regionals">Regionals</button>
-            <button class="filter-btn" data-filter="Nationals">Nationals</button>
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Nationals">2025 Nationals</button>
+            <button class="filter-btn" data-filter="Regionals">2025 Regionals</button>
+            <button class="filter-btn" data-filter="Practices">2025 Practices</button>
         </div>
 
         <section class="photo-gallery">
@@ -92,6 +95,8 @@
     const closeBtn = document.querySelector('.close');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    let scrollPosition = 0;
+    let lastViewedImage = null;
 
     // Function to load images from a folder
     async function loadImagesFromFolder(folder, category) {
@@ -133,9 +138,10 @@
 
     // Load images from all folders when the page loads
     document.addEventListener('DOMContentLoaded', async function() {
-        await loadImagesFromFolder('Practices', 'Practices');
-        await loadImagesFromFolder('Regionals', 'Regionals');
-        await loadImagesFromFolder('Nationals', 'Nationals');
+        // Load images in specific order: Nationals first, then Regionals, then Practices
+        await loadImagesFromFolder('2025 Nationals', 'Nationals');
+        await loadImagesFromFolder('2025 Regionals', 'Regionals');
+        await loadImagesFromFolder('2025 Practices', 'Practices');
         
         // Initialize visible images array
         visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));
@@ -155,7 +161,7 @@
                 visibleImages = [];  // Reset visible images array
 
                 galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    if (filterValue === 'All' || item.getAttribute('data-category') === filterValue) {
                         item.style.display = 'block';
                         visibleImages.push(item.querySelector('img'));  // Add to visible images
                     } else {
@@ -167,52 +173,82 @@
     });
 
     function openModal(img) {
-        modal.style.display = "block";
+        lastViewedImage = img;
+        scrollPosition = img.getBoundingClientRect().top + window.pageYOffset;
+        modal.style.display = 'flex';
         modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
         // Find the index in visibleImages array
         currentImageIndex = visibleImages.indexOf(img);
         updateNavigationButtons();
     }
 
     function closeModal() {
-        modal.style.display = "none";
-        document.body.classList.remove('modal-open');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        if (lastViewedImage) {
+            lastViewedImage.scrollIntoView({ behavior: 'instant', block: 'center' });
+        }
     }
 
     function navigate(direction) {
         currentImageIndex += direction;
         if (currentImageIndex >= visibleImages.length) return;  // Don't go past last visible image
         if (currentImageIndex < 0) return;  // Don't go before first visible image
-        modalImg.src = visibleImages[currentImageIndex].src;
+        lastViewedImage = visibleImages[currentImageIndex];
+        modalImg.src = lastViewedImage.src;
         updateNavigationButtons();
     }
 
     function updateNavigationButtons() {
-        // Hide next button if at last visible image
-        nextBtn.style.display = currentImageIndex >= visibleImages.length - 1 ? 'none' : 'block';
-        // Hide prev button if at first visible image
-        prevBtn.style.display = currentImageIndex <= 0 ? 'none' : 'block';
+        // Hide prev button if at first image
+        prevBtn.style.visibility = currentImageIndex <= 0 ? 'hidden' : 'visible';
+        // Hide next button if at last image
+        nextBtn.style.visibility = currentImageIndex >= visibleImages.length - 1 ? 'hidden' : 'visible';
     }
 
     closeBtn.onclick = closeModal;
     prevBtn.onclick = () => navigate(-1);
     nextBtn.onclick = () => navigate(1);
 
-    // Close when clicking outside the image
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
             closeModal();
         }
+    });
+
+    // Close modal when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') {
+            closeModal();
+        }
+    });
+
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Function to close menu
+    function closeMenu() {
+        navLinks.classList.remove('active');
     }
 
-    // Keyboard navigation
-    document.onkeydown = function(e) {
-        if (modal.style.display === "block") {
-            if (e.key === "Escape") closeModal();
-            if (e.key === "ArrowLeft" && currentImageIndex > 0) navigate(-1);
-            if (e.key === "ArrowRight" && currentImageIndex < visibleImages.length - 1) navigate(1);
+    // Close menu on page load
+    closeMenu();
+
+    // Close menu when screen size changes
+    window.addEventListener('resize', closeMenu);
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            closeMenu();
         }
-    }
+    });
     </script>
 </body>
 </html> 

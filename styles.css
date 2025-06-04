@@ -225,6 +225,11 @@ nav {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
 }
 
 .highlight-card i {
@@ -1784,4 +1789,27 @@ body.modal-open {
     .donation-options {
         grid-template-columns: 1fr;
     }
+}
+
+.sponsor-tier h3 {
+    color: #222;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.donation-option, .sponsor-tier, .team-year {
+    transition: transform 0.3s ease;
+}
+
+.donation-option:hover, .sponsor-tier:hover, .team-year:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-card {
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
 }

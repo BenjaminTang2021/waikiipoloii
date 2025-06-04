@@ -1506,15 +1506,54 @@ body.modal-open {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 40px;
+    padding: 0 1rem;
 }
 
-.stats-container .team-year {
-    margin-bottom: 0;
+.team-year {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    width: 100%;
 }
 
-@media (max-width: 768px) {
+.team-year img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 0.5rem;
+    display: block;
+}
+
+@media (max-width: 992px) {
     .stats-container {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .team-year {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .team-year img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-container {
+        padding: 0;
+    }
+
+    .team-year {
+        padding: 10px;
+    }
+
+    .team-year .achievements {
+        padding: 0 10px;
     }
 }
 

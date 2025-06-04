@@ -1177,16 +1177,14 @@ h2 {
 }
 
 .about-header {
-    position: relative;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
-    min-height: 400px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
+    position: relative;
 }
 
 .about-header::before {
@@ -1196,7 +1194,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Increased from 0.5 to 0.6 for a dimmer overlay */
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .header-content {
@@ -1257,7 +1255,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 .header-content {
@@ -1285,7 +1283,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .header-content {
@@ -1321,7 +1319,7 @@ h2 {
 .gallery-header {
     position: relative;
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
     min-height: 400px;
     display: flex;
@@ -1338,7 +1336,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .gallery-content {
@@ -1526,35 +1524,45 @@ body.modal-open {
 }
 
 .team-year img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 0.5rem;
     display: block;
-    margin: 0 auto 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.achievements {
+.photo-caption {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 0.5rem 0 1.5rem;
+    font-style: italic;
+}
+
+.team-year .achievements {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.achievements h4 {
+.team-year .achievements h4 {
     color: var(--maroon);
     margin: 20px 0 10px;
     font-size: 1.1em;
 }
 
-.achievements ul {
+.team-year .achievements ul {
     list-style-type: none;
     padding-left: 20px;
 }
 
-.achievements li {
+.team-year .achievements li {
     margin-bottom: 8px;
     position: relative;
     padding-left: 20px;
 }
 
-.achievements li:before {
+.team-year .achievements li:before {
     content: "•";
     color: #666;
     position: absolute;

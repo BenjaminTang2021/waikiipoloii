@@ -27,7 +27,7 @@
         </ul>
     </nav>
 
-    <header class="gallery-header" style="background-image: url('./images/gallery-header.jpg');">
+    <header class="gallery-header" style="background-image: url('./images/header3.JPG');">
         <div class="header-content">
             <h1>Photo Gallery</h1>
             <!-- <p class="credit">Credit: All Images by Smith Sira</p> -->
@@ -40,6 +40,8 @@
             <button class="filter-btn" data-filter="Nationals">2025 Nationals</button>
             <button class="filter-btn" data-filter="Regionals">2025 Regionals</button>
             <button class="filter-btn" data-filter="Practices">2025 Practices</button>
+            <button class="filter-btn" data-filter="2024 Nationals">2024 Nationals</button>
+            <button class="filter-btn" data-filter="2024 Girls Prelims">2024 Girls Prelims</button>
         </div>
 
         <section class="photo-gallery">
@@ -144,6 +146,8 @@
         await loadImagesFromFolder('2025 Nationals', 'Nationals');
         await loadImagesFromFolder('2025 Regionals', 'Regionals');
         await loadImagesFromFolder('2025 Practices', 'Practices');
+        await loadImagesFromFolder('2024 Nationals', '2024 Nationals');
+        await loadImagesFromFolder('2024 Girls Prelims', '2024 Girls Prelims');
         
         // Initialize visible images array
         visibleImages = Array.from(document.querySelectorAll('.gallery-item img'));

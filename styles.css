@@ -674,7 +674,8 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tier-card {
@@ -1025,6 +1026,8 @@ table {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .sponsor-tier {
@@ -1033,6 +1036,8 @@ table {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .sponsor-tier.featured {
@@ -1507,6 +1512,8 @@ body.modal-open {
     gap: 2rem;
     margin-bottom: 40px;
     padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .team-year {
@@ -1515,6 +1522,7 @@ body.modal-open {
     background-color: #f8f8f8;
     border-radius: 8px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .team-year img {
@@ -1531,11 +1539,13 @@ body.modal-open {
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 0.5rem;
+        width: 100%;
     }
 
     .team-year {
         padding: 15px;
         margin-bottom: 20px;
+        width: 100%;
     }
 
     .team-year img {
@@ -1546,14 +1556,21 @@ body.modal-open {
 @media (max-width: 576px) {
     .stats-container {
         padding: 0;
+        width: 100%;
     }
 
     .team-year {
         padding: 10px;
+        width: 100%;
     }
 
     .team-year .achievements {
         padding: 0 10px;
+    }
+
+    .team-year img {
+        max-width: 100%;
+        width: 100%;
     }
 }
 

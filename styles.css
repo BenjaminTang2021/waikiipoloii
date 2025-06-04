@@ -42,6 +42,15 @@ nav {
     margin-top: 3px;
 }
 
+.logo a {
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.logo a:hover {
+    opacity: 0.9;
+}
+
 .logo img {
     height: 50px;
     width: auto;
@@ -1350,13 +1359,13 @@ h2 {
 }
 
 .sponsor-contact {
-    text-align: center;  /* Center the text and button */
+    text-align: left;  /* Changed from center to left */
     margin-bottom: 40px;
 }
 
 .sponsor-contact .cta-button {
-    display: inline-block;  /* Ensure button is centered */
-    margin: 20px auto;  /* Add margin for spacing */
+    display: inline-block;
+    margin: 20px 0;  /* Changed from auto to 0 for left alignment */
 }
 
 .lb-overlay {
@@ -1605,5 +1614,52 @@ body.modal-open {
     
     .footer-nav a {
         font-size: 1em;
+    }
+}
+
+.donation-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.donation-option {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.donation-option h3 {
+    color: var(--maroon);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.donation-option p {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.donation-option .donate-card {
+    margin-top: 1.5rem;
+}
+
+.donation-option .cta-button {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+@media (max-width: 992px) {
+    .donation-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .donation-options {
+        grid-template-columns: 1fr;
     }
 }
